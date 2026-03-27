@@ -25,8 +25,12 @@ const ReadingResult = ({ userInfo, cards, spreadId, onReset }) => {
             return (
               <div key={index} className="result-item">
                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                  <div className="result-card-visual">
-                     {card.vn_name}
+                  <div className="result-card-visual" style={{ padding: 0, overflow: 'hidden' }}>
+                     {card.image ? (
+                       <img src={card.image} alt={card.name} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                     ) : (
+                       card.vn_name
+                     )}
                   </div>
                 </div>
                 <div className="result-content">

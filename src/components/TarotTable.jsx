@@ -44,12 +44,18 @@ const TarotTable = ({ numCards, onReadingComplete }) => {
                   <img src={cardBackImage} alt="Card Back" />
                 </div>
                 
-                <div className="card-front">
-                  <div style={{fontSize: '2rem'}}>✨</div>
-                  <h3 className="card-front-title">{card.vn_name}</h3>
-                  <p className="card-front-suit">
-                    {card.suit === 'major' ? 'Bộ Ẩn Chính' : 'Bộ Ẩn Phụ'}
-                  </p>
+                <div className="card-front" style={{ padding: 0, overflow: 'hidden' }}>
+                  {card.image ? (
+                    <img src={card.image} alt={card.name} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                  ) : (
+                    <>
+                      <div style={{fontSize: '2rem'}}>✨</div>
+                      <h3 className="card-front-title">{card.vn_name}</h3>
+                      <p className="card-front-suit">
+                        {card.suit === 'major' ? 'Bộ Ẩn Chính' : 'Bộ Ẩn Phụ'}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

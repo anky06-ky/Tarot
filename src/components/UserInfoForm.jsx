@@ -13,42 +13,39 @@ const UserInfoForm = ({ onComplete }) => {
   };
 
   return (
-    <div className="glass-panel max-w-md mx-auto my-8 fade-in">
-      <h2 className="text-2xl text-center text-gold mb-6">Người Trải Bài</h2>
-      <p className="text-center text-sm text-[var(--color-text-muted)] mb-6">
+    <div className="glass-panel fade-in">
+      <h2 className="text-center text-gold mb-4">Người Trải Bài</h2>
+      <p className="text-center text-muted mb-6">
         Thông tin cung cấp chân thành giúp vũ trụ kết nối năng lượng chính xác
       </p>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1">Tên của bạn</label>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Tên của bạn</label>
           <input 
             type="text" 
             placeholder="Nhập họ và tên..." 
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full"
           />
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="form-row">
           <div>
-            <label className="block text-sm font-medium mb-1">Ngày sinh</label>
+            <label>Ngày sinh</label>
             <input 
               type="date" 
               value={dob}
               onChange={(e) => setDob(e.target.value)}
-              className="w-full"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Giới tính</label>
+            <label>Giới tính</label>
             <select 
               value={gender}
               onChange={(e) => setGender(e.target.value)}
-              className="w-full"
             >
               <option value="female">Nữ</option>
               <option value="male">Nam</option>
@@ -57,12 +54,11 @@ const UserInfoForm = ({ onComplete }) => {
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-1">Lĩnh vực muốn hỏi</label>
+        <div className="form-group">
+          <label>Lĩnh vực muốn hỏi</label>
           <select 
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            className="w-full"
           >
             <option value="tổng quan">Tổng quan vận mệnh</option>
             <option value="tình yêu">Tình yêu & Mối quan hệ</option>
@@ -74,7 +70,6 @@ const UserInfoForm = ({ onComplete }) => {
 
         <button 
           type="submit" 
-          className="w-full mt-6"
           disabled={!name.trim()}
         >
           Kết Nối Năng Lượng

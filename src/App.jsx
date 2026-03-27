@@ -7,7 +7,6 @@ import ReadingResult from './components/ReadingResult';
 import './index.css';
 
 function App() {
-  // states: 'intro', 'form', 'spread', 'table', 'result'
   const [appState, setAppState] = useState('intro');
   const [userInfo, setUserInfo] = useState(null);
   const [spreadId, setSpreadId] = useState(null);
@@ -36,19 +35,18 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen relative p-4 md:p-8">
-      {/* Background decoration elements */}
+    <div className="app-wrapper">
       <div className="stars-container"></div>
       
       <Header />
 
-      <main className="container mx-auto">
+      <main className="container">
         {appState === 'intro' && (
-          <div className="text-center mt-12 fade-in">
-            <button onClick={() => setAppState('form')} className="px-10 py-4 text-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] animate-pulse-glow">
+          <div className="text-center mt-4 fade-in">
+            <button onClick={() => setAppState('form')} className="btn-start animate-pulse-glow">
               Bắt Đầu Hành Trình
             </button>
-            <p className="mt-8 text-[var(--color-text-muted)] text-sm">
+            <p className="text-muted mt-4" style={{fontSize: '0.85rem'}}>
               Được bảo vệ bởi năng lượng vũ trụ
             </p>
           </div>
@@ -79,9 +77,9 @@ function App() {
         )}
       </main>
 
-      <footer className="mt-20 text-center py-6 text-sm text-[var(--color-text-muted)] border-t border-white/10">
+      <footer>
         <p>Mystery Tarot Personal Version • By anky06-ky</p>
-        <p className="mt-2 text-xs opacity-50">Tôn trọng quyền riêng tư • Kết nối năng lượng</p>
+        <p style={{marginTop: '0.5rem', opacity: 0.5}}>Tôn trọng quyền riêng tư • Kết nối năng lượng</p>
       </footer>
     </div>
   );

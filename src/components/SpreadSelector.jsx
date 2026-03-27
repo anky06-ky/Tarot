@@ -16,31 +16,31 @@ const SpreadSelector = ({ onSelectSpread }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-8 fade-in">
-      <h2 className="text-3xl text-center text-gold mb-2">Chọn Kiểu Trải Bài</h2>
-      <p className="text-center text-[var(--color-text-muted)] mb-8">Mỗi kiểu trải bài mang một chiều sâu khác nhau</p>
+    <div className="spreads-container fade-in">
+      <h2 className="text-center text-gold mb-2">Chọn Kiểu Trải Bài</h2>
+      <p className="text-center text-muted mb-6">Mỗi kiểu trải bài mang một chiều sâu khác nhau</p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="spread-grid">
         {spreads.map((spread) => (
           <div 
             key={spread.id} 
             onClick={() => setSelected(spread.id)}
-            className={`glass-panel cursor-pointer transition-all duration-300 border-2 ${selected === spread.id ? 'border-[var(--color-primary)] box-shadow-[0_0_15px_rgba(212,175,55,0.4)] transform -translate-y-2' : 'border-transparent hover:border-[rgba(212,175,55,0.3)]'}`}
+            className={`spread-card ${selected === spread.id ? 'active' : ''}`}
           >
-            <h3 className="text-xl text-gold mb-2 text-center">{spread.name}</h3>
-            <p className="text-sm text-[var(--color-text-main)] mb-4 text-center">{spread.description}</p>
-            <div className="text-xs text-center text-[var(--color-accent)] uppercase tracking-wider">
+            <h3 className="text-gold mb-2">{spread.name}</h3>
+            <p className="mb-4 text-muted">{spread.description}</p>
+            <div className="spread-energy">
               Năng lượng: {spread.energy}
             </div>
           </div>
         ))}
       </div>
 
-      <div className="text-center">
+      <div className="text-center mt-4">
         <button 
           onClick={handleSelect}
           disabled={!selected}
-          className="px-10 py-3 text-lg"
+          style={{ maxWidth: '300px' }}
         >
           Xác Nhận Kiểu Trải Bài
         </button>
